@@ -32,6 +32,7 @@ import (
 	"github.com/census-instrumentation/opencensus-service/exporter/honeycombexporter"
 	"github.com/census-instrumentation/opencensus-service/exporter/jaegerexporter"
 	"github.com/census-instrumentation/opencensus-service/exporter/kafkaexporter"
+	"github.com/census-instrumentation/opencensus-service/exporter/lightstepexporter"
 	"github.com/census-instrumentation/opencensus-service/exporter/opencensusexporter"
 	"github.com/census-instrumentation/opencensus-service/exporter/prometheusexporter"
 	"github.com/census-instrumentation/opencensus-service/exporter/stackdriverexporter"
@@ -457,6 +458,7 @@ func ExportersFromViperConfig(logger *zap.Logger, v *viper.Viper) ([]consumer.Tr
 		{name: "prometheus", fn: prometheusexporter.PrometheusExportersFromViper},
 		{name: "aws-xray", fn: awsexporter.AWSXRayTraceExportersFromViper},
 		{name: "honeycomb", fn: honeycombexporter.HoneycombTraceExportersFromViper},
+		{name: "lightstep", fn: lightstepexporter.LightStepExportersFromViper},
 	}
 
 	var traceExporters []consumer.TraceConsumer

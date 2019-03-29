@@ -2,16 +2,12 @@ receivers:
     opencensus:
         address: "127.0.0.1:55678"
 
-    zipkin:
-        address: "127.0.0.1:9411"
-
-exporters:
-    stackdriver:
-        project: "project-id"
-        enable_tracing: true
-
-    zipkin:
-        endpoint: "http://127.0.0.1:9411/api/v2/spans"
+exporters:  
+    lightstep:
+        satellite_host: "localhost"
+        satellite_port: 8360
+        satellite_use_plaintext: true
+        access_token: "none"
 
 zpages:
     port: 55679
